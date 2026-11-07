@@ -53,3 +53,20 @@ def solution(events):
 
 result = solution(events)
 print(result)
+
+
+# 설계 방식
+# 
+# for 로 events 순회 => event 로 split 
+#
+# 예금: dic에 그냥 넣음
+# 출금: 내부 잔고 검사 .. rejected 가능성 + 출금
+# 이체: 내부 잔고 검사 .. rejected 가능성 + 입출금
+#
+# dic 순회하며 out 배열에 넣기
+# rejected내역 out 배열에 넣기
+#
+#
+#
+#
+#

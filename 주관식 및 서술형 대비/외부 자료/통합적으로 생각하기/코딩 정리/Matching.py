@@ -63,3 +63,30 @@ def solution(commands):
 
 result = solution(commands)
 print(result)
+
+
+# 설계 방식: 우선순위 큐
+# 
+# 체결되지 않은 주문들:
+# selling(팔 주문) => 내림 차순: 낮은 녀석부터 체결 .. 동일 시 seq 낮은 녀석 우선
+# buying(살 주문) => 오름 차순: 높은 녀석부터 삼 .. 동일 시 seq 낮은 녀석 우선
+# cancel(취소 주문) => set에 id 넣음
+# 
+# 
+# for 주문 in commands.. 순으로 순회
+# 
+# 팔 주문일 경우: 
+#   buying 있다면? => while
+#   1. buying을 peek 함 => peekID = cancelID라면? pop 하고 다음
+#   2. peek 가격 >= 팔 주문 가격: 수량 만큼 체결
+#   3. peek의 수량 = 0 이라면? pop | peek 수량이 남아있다면? peek 수량만 차감
+#   4. 팔 주문의 남은 수량이 > 0 이라면? selling에 넣음
+# 
+# 살 주문일 경우:
+#   selling 있다면? => while
+#   1. selling을 peek 함 => peekID = cancelID라면? pop 하고 다음
+#   2. selling 가격 <= 살 주문 가격: 수량 만큼 체결
+#   3. peek의 수량 = 0 이라면? pop | peek 수량이 남아있다면? peek 수량만 차감
+#   4. 살 주문의 남은 수량이 > 0 이라면? buying에 넣음
+#
+#
